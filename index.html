@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index1.js"></script>
+</head>
+<body>
+    <h1>hello this is a home page</h1>
+
+    <div id="id">
+
+    </div>
+    <script>
+        let obj = {
+            name : 'rahim uddin',
+            email : 'rahim@gmail.com',
+            courses : ['android','php','django'],
+            employes: {
+                employe1 : {
+                    name:'rahim uddin',
+                    email: 'rahim@gmail.com'
+                },
+                employe2 : {
+                    name:'habib rahman',
+                    email: 'habib@gmail.com'
+                },
+                employe3 : {
+                    name:'alamin islam',
+                    email: 'alamin@gmail.com'
+                },
+                employe4 : {
+                    name:'taskin ahmed',
+                    email: 'taskin@gmail.com'
+                },
+                
+            },
+            courses1:[
+                { ctname:'android developmnet',cname: ['android','flutter','java']},
+                { ctname:'digital marketing',cname: ['seo','sem','smo']},
+            ]
+        }
+       // delete 1 index element of array
+      //  obj.courses.splice(1,1)
+        for(let i = 0 ; i<obj.courses.length; i++) {
+            // update any element of array
+            if(obj.courses[i] === 'android'){
+                obj.courses[i] = 'ruby'
+            }
+            // update last element of array
+            if(obj.courses[obj.courses.length-1]) {
+                obj.courses[obj.courses.length-1] = 'java'
+            }
+            // delete 1 index element of array
+            if(i==1) {
+                obj.courses[i] = obj.courses[i+1]
+                obj.courses.length = obj.courses.length-1
+            }
+            
+
+            document.getElementById('id').innerHTML += obj.courses[i] + "<br/>"
+        }
+        let data = []
+        for(let keys in obj.employes) {
+            data.push(obj.employes[keys])
+        }
+       data.map((item)=>{
+        document.getElementById('id').innerHTML += "name: " +item.name + "<br/>"
+        document.getElementById('id').innerHTML +="email: " + item.email + "<br/>"
+       })
+
+
+     //traverse nested array
+       obj.courses1.forEach((item)=>{
+        for(let keys in item) {
+            document.getElementById('id').innerHTML += keys +" :" + item[keys] + "<br/>"
+        }
+       })
+
+   
+    </script>
+</body>
+</html>
